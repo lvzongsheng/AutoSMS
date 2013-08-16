@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AutoSMS</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="add_sms">添加短信</string>
+    <string name="desk_sms_button_description">desk SMS button</string>
+    
+    <string name="done">保存</string>
+    <string name="delete">取消</string>
+    
+    <string name="set_sms">"短信编辑"</string>
+    
+    <string name="menu_edit_sms">编辑短信</string>
+    <string name="menu_delete_sms">删除短信</string>
+    <string name="delete_sms_confirm">是</string>
+    <string name="delete_sms">您确定要删除短信吗?</string>
+
+</resources>

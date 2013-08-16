@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zju.autosmsapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    
+    	<!--  发送消息-->
+     <uses-permission android:name="android.permission.SEND_SMS"/>
+        <!--  阅读消息-->
+        <uses-permission android:name="android.permission.READ_SMS"/>
+        <!--  写入消息-->
+        <uses-permission android:name="android.permission.WRITE_SMS" />
+        <!-- 接收消息 -->
+        <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    
+	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <provider android:name="SMSProvider"
+                android:authorities="com.zju.autosmsapp"
+                android:exported="false" />
+        
+        <activity
+            android:name="com.zju.autosmsapp.AutoSMSMainActivity"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zju.autosmsapp.SetSMS"
+            android:label="@string/set_sms"
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation">
+            
+        </activity>
+        
+        <receiver
+            android:name="com.zju.autosmsapp.SMSReceiver">
+            <intent-filter>  
+                <action android:name="SMSReceiver" />             
+            </intent-filter>  
+        </receiver>
+    </application>
+
+</manifest>

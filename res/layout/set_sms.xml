@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收信人号码" />
+		
+	        
+	     <EditText
+	        android:id="@+id/phnum"
+	        android:layout_width="300dp"
+	        android:layout_height="wrap_content"
+	        android:inputType="number" />
+	    
+	    <Button
+	        android:id="@+id/contact"
+	        android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:text="联系人"/>   
+
+	    <TextView
+	        android:id="@+id/message_text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="短信内容" />
+
+	    <EditText android:id="@+id/message"
+	        android:inputType="text"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" />
+
+	    <DatePicker
+	        android:id="@+id/datePicker"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+
+	    <TimePicker
+	        android:id="@+id/timePicker"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	   
+	</LinearLayout>
+    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@android:style/ButtonBar">
+
+        <Button android:id="@+id/sms_save"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/done"/>
+
+        <Button android:id="@+id/sms_delete"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/delete"/>
+
+    </LinearLayout>
+
+</LinearLayout>
