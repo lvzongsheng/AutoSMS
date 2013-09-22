@@ -2,7 +2,6 @@
     android:id="@+id/base_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_background"
     android:orientation="vertical"> 
 
     <LinearLayout android:id="@+id/add_sms"
@@ -44,45 +43,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <ImageButton android:id="@+id/desk_sms_button"
-            style="@style/ButtonStripLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_sms_strip_desk_sms"
-            android:contentDescription="@string/desk_sms_button_description"/>
-
-        <com.zju.autosmsapp.DigitalClock
-            style="@style/ButtonStripRight"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="true">
-
-                <TextView android:id="@+id/timeDisplay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="6dip"
-                    android:textSize="20sp"
-                    android:textColor="?android:attr/textColorPrimary" />
-
-                <TextView android:id="@+id/am_pm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?android:attr/textColorPrimary" />
-
-            </LinearLayout>
-
-      </com.zju.autosmsapp.DigitalClock>
-
-    </LinearLayout>
+    
 
 </LinearLayout>
