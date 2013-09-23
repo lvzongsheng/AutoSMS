@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class SetSMS extends Activity{
 	Calendar calendar = Calendar.getInstance(); 
 	private Button save_btn;
 	private Button delete_btn;
-	private Button contact_btn;
+	private ImageButton contact_btn;
 	private EditText phone;
 	private EditText message;
 	private TimePicker timePicker;
@@ -37,7 +38,7 @@ public class SetSMS extends Activity{
 		setContentView(R.layout.set_sms);
 		save_btn = (Button)findViewById(R.id.sms_save);
 		delete_btn = (Button)findViewById(R.id.sms_delete);
-		contact_btn = (Button)findViewById(R.id.contact);
+		contact_btn = (ImageButton)findViewById(R.id.contact);
 		phone = (EditText)findViewById(R.id.phnum);
 		message = (EditText)findViewById(R.id.message);
 		timePicker = (TimePicker)findViewById(R.id.timePicker);
@@ -72,10 +73,10 @@ public class SetSMS extends Activity{
 
 			@Override
 			public void onClick(View arg0) {
-				if(isEdit){//Èç¹ûÊÇ¶ÔÒ»ÌõÒÑÓÐµÄ¶ÌÐÅ½øÐÐ±à¼­Ö®ºó±£´æÊ±£¬µ÷ÓÃupdate
+				if(isEdit){//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½update
 					updateSMS(sms);
 				}
-				else{//Èç¹ûÊÇÐÂ¼ÓÒ»Ìõ¶ÌÐÅÊ±£¬Ôò½«¸ÃÌõ¶ÌÐÅ¼ÓÈëµ½Êý¾Ý¿â
+				else{//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					addSMS(sms);
 				}
 			}
@@ -113,7 +114,7 @@ public class SetSMS extends Activity{
 		sms.hour = timePicker.getCurrentHour();
 		sms.minutes = timePicker.getCurrentMinute();
 		if(sms.phone.isEmpty()||sms.message.isEmpty()){
-			Toast.makeText(getApplicationContext(), "ºÅÂë»òÕßÐÅÏ¢ÄÚÈÝ²»ÄÜÎª¿Õ",
+			Toast.makeText(getApplicationContext(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
 				     Toast.LENGTH_SHORT).show();
 			return;
 		}
@@ -125,7 +126,7 @@ public class SetSMS extends Activity{
 			SMSMain.addSMS(this, sms);
 			finish();
 		}else{
-			Toast.makeText(getApplicationContext(), "¶ÌÐÅ·¢ËÍÊ±¼ä±ØÐëÔÚµ±Ç°Ê±¼äÖ®ºó",
+			Toast.makeText(getApplicationContext(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
 				     Toast.LENGTH_SHORT).show();
 		}
 	}
@@ -146,7 +147,7 @@ public class SetSMS extends Activity{
 			SMSMain.updateSMS(this, sms);
 			finish();
 		}else{
-			Toast.makeText(getApplicationContext(), "¶ÌÐÅ·¢ËÍÊ±¼ä±ØÐëÔÚµ±Ç°Ê±¼äÖ®ºó",
+			Toast.makeText(getApplicationContext(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
 				     Toast.LENGTH_SHORT).show();
 		}
 	}

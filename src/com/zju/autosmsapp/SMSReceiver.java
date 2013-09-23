@@ -37,7 +37,7 @@ public class SMSReceiver extends BroadcastReceiver{
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);  
         int minute = Calendar.getInstance().get(Calendar.MINUTE);  
   
-        /*String time = sharedPreferences.getString(year+"/"+month+"/"+date +" "+ hour + ":" + minute, null);// 小时与分，  
+        /*String time = sharedPreferences.getString(year+"/"+month+"/"+date +" "+ hour + ":" + minute, null);// ���������������  
         String phone = sharedPreferences.getString("phone", null);  
         String message = sharedPreferences.getString("message", null);  
         */
@@ -52,16 +52,16 @@ public class SMSReceiver extends BroadcastReceiver{
             for(int i = 0; i<phones.length;++i){
             	String phone = phones[i].trim();
             	sendMsg(phone, message);
-                //发完后将短信存到系统短信库
+                
                 ContentValues values = new ContentValues();
                 values.put("date",System.currentTimeMillis());
-                values.put("read", 0);//阅读状态
-                values.put("type",2);//1为接收，2为发送
+                values.put("read", 0);
+                values.put("type",2);
                 values.put("address",phone);
                 values.put("body",message);
                 context.getContentResolver().insert(Uri.parse("content://sms"),values);
             }
-            SMSMain.deleteSMS(context, sms.id);//发完后删除短信
+            SMSMain.deleteSMS(context, sms.id);
             if(SMSMain.calculateNextSMS(context)!=null)
             	SMSMain.setNextAlert(context);
         }  

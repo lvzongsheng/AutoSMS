@@ -9,36 +9,39 @@
 	    android:layout_height="wrap_content"
 	    android:layout_weight="1"
 	    android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/phone_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收信人号码" />
 		
-	        
-	     <EditText
-	        android:id="@+id/phnum"
-	        android:layout_width="300dp"
-	        android:layout_height="wrap_content"
-	        android:inputType="number" />
+	     <LinearLayout
+	         android:layout_width="match_parent"
+	         android:layout_height="wrap_content"
+	         android:layout_marginTop="3dp"
+	         android:orientation="horizontal">   
+		     <EditText
+		        android:id="@+id/phnum"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:inputType="number" 
+		        android:background="@drawable/shape"
+		        android:textSize="24sp"
+		        android:layout_marginLeft="3dp"
+		        android:layout_weight="1"
+		        android:hint="收信人号码"/>
 	    
-	    <Button
-	        android:id="@+id/contact"
-	        android:layout_width="100dp"
-	        android:layout_height="wrap_content"
-	        android:text="联系人"/>   
-
-	    <TextView
-	        android:id="@+id/message_text"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="短信内容" />
+		    <ImageButton
+		        android:id="@+id/contact"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/contact"/>   
+	   </LinearLayout>
 
 	    <EditText android:id="@+id/message"
 	        android:inputType="text"
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" />
+	        android:layout_height="wrap_content" 
+	        android:background="@drawable/shape"
+	        android:textSize="24sp"
+	        android:layout_marginLeft="3dp"
+	        android:layout_marginRight="3dp"
+	        android:hint="短信内容"/>
 
 	    <DatePicker
 	        android:id="@+id/datePicker"
