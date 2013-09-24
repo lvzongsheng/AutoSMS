@@ -37,8 +37,9 @@ public class SetSMS extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.set_sms);
 		save_btn = (Button)findViewById(R.id.sms_save);
-		delete_btn = (Button)findViewById(R.id.sms_delete);
+		delete_btn = (Button)findViewById(R.id.sms_cancel);
 		contact_btn = (ImageButton)findViewById(R.id.contact);
+		contact_btn.getBackground().setAlpha(0);
 		phone = (EditText)findViewById(R.id.phnum);
 		message = (EditText)findViewById(R.id.message);
 		timePicker = (TimePicker)findViewById(R.id.timePicker);
@@ -73,10 +74,10 @@ public class SetSMS extends Activity{
 
 			@Override
 			public void onClick(View arg0) {
-				if(isEdit){//����������������������������������������������update
+				if(isEdit){
 					updateSMS(sms);
 				}
-				else{//����������������������������������������������
+				else{
 					addSMS(sms);
 				}
 			}
@@ -114,7 +115,7 @@ public class SetSMS extends Activity{
 		sms.hour = timePicker.getCurrentHour();
 		sms.minutes = timePicker.getCurrentMinute();
 		if(sms.phone.isEmpty()||sms.message.isEmpty()){
-			Toast.makeText(getApplicationContext(), "������������������������",
+			Toast.makeText(getApplicationContext(), "收信人号码或短信内容不能为空",
 				     Toast.LENGTH_SHORT).show();
 			return;
 		}
@@ -126,7 +127,7 @@ public class SetSMS extends Activity{
 			SMSMain.addSMS(this, sms);
 			finish();
 		}else{
-			Toast.makeText(getApplicationContext(), "������������������������������",
+			Toast.makeText(getApplicationContext(), "发送时间无效，请重新选择时间",
 				     Toast.LENGTH_SHORT).show();
 		}
 	}
@@ -147,7 +148,7 @@ public class SetSMS extends Activity{
 			SMSMain.updateSMS(this, sms);
 			finish();
 		}else{
-			Toast.makeText(getApplicationContext(), "������������������������������",
+			Toast.makeText(getApplicationContext(), "发送时间无效，请重新选择时间",
 				     Toast.LENGTH_SHORT).show();
 		}
 	}

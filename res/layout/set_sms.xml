@@ -3,57 +3,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    >
     <LinearLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_weight="1"
+	    android:background="#97a2ac"
 	    android:orientation="vertical" >
 		
 	     <LinearLayout
 	         android:layout_width="match_parent"
 	         android:layout_height="wrap_content"
-	         android:layout_marginTop="3dp"
+	         android:layout_marginTop="7dp"
 	         android:orientation="horizontal">   
 		     <EditText
 		        android:id="@+id/phnum"
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
+		        android:layout_height="35dp"
 		        android:inputType="number" 
 		        android:background="@drawable/shape"
-		        android:textSize="24sp"
-		        android:layout_marginLeft="3dp"
+		        android:textSize="15sp"
+		        android:layout_marginLeft="6dp"
 		        android:layout_weight="1"
 		        android:hint="收信人号码"/>
 	    
 		    <ImageButton
 		        android:id="@+id/contact"
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
+		        android:layout_height="35dp"
 		        android:src="@drawable/contact"/>   
 	   </LinearLayout>
 
 	    <EditText android:id="@+id/message"
 	        android:inputType="text"
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" 
+	        android:layout_height="35dp" 
 	        android:background="@drawable/shape"
-	        android:textSize="24sp"
-	        android:layout_marginLeft="3dp"
-	        android:layout_marginRight="3dp"
+	        android:textSize="15sp"
+	        android:layout_marginLeft="6dp"
+	        android:layout_marginRight="6dp"
+	        android:layout_marginBottom="7dp"
+	        android:layout_marginTop="7dp"
 	        android:hint="短信内容"/>
-
+		</LinearLayout>
 	    <DatePicker
 	        android:id="@+id/datePicker"
 	        android:calendarViewShown="false"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_height="match_parent"
 	        android:layout_gravity="center" />
 
 	    <TimePicker
 	        android:id="@+id/timePicker"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_height="match_parent"
 	        android:layout_gravity="center" />
 	   
 	</LinearLayout>
@@ -72,12 +79,12 @@
             android:layout_weight="1"
             android:text="@string/done"/>
 
-        <Button android:id="@+id/sms_delete"
+        <Button android:id="@+id/sms_cancel"
             android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/delete"/>
+            android:text="@string/cancel"/>
 
     </LinearLayout>
 

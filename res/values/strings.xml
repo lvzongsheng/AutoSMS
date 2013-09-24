@@ -2,14 +2,14 @@
 <resources>
 
     <string name="app_name">AutoSMS</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     
+    <string name="sms_receiver">收信人:</string>
+    <string name="sms_content">内容：</string>
     <string name="add_sms">添加短信</string>
     <string name="desk_sms_button_description">desk SMS button</string>
     
     <string name="done">保存</string>
-    <string name="delete">取消</string>
+    <string name="cancel">取消</string>
     
     <string name="set_sms">"短信编辑"</string>
     

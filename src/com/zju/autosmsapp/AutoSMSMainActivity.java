@@ -149,30 +149,17 @@ public class AutoSMSMainActivity extends Activity {
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
             View ret = mFactory.inflate(R.layout.sms_time, parent, false);
             
-            DigitalClock digitalClock =
-                    (DigitalClock) ret.findViewById(R.id.digitalClock);
-            digitalClock.setLive(false);
+            SMSShow smsShow =
+                    (SMSShow) ret.findViewById(R.id.smsShow);
+            smsShow.setLive(false);
             return ret;
         }
 
         public void bindView(View view, Context context, Cursor cursor) {
             final SMS sms = new SMS(cursor);
 
-            View indicator = view.findViewById(R.id.indicator);
-
-            // Set the initial resource for the bar image.
-            final ImageView barOnOff =
-                    (ImageView) indicator.findViewById(R.id.bar_onoff);
-            barOnOff.setImageResource(true ?
-                    R.drawable.ic_indicator_on : R.drawable.ic_indicator_off);
-
-            // Set the initial state of the clock "checkbox"
-            final CheckBox clockOnOff =
-                    (CheckBox) indicator.findViewById(R.id.clock_onoff);
-            clockOnOff.setChecked(true);
-
-            DigitalClock digitalClock =
-                    (DigitalClock) view.findViewById(R.id.digitalClock);
+            SMSShow smsShow =
+                    (SMSShow) view.findViewById(R.id.smsShow);
 
             // set the alarm text
             final Calendar c = Calendar.getInstance();
@@ -181,8 +168,8 @@ public class AutoSMSMainActivity extends Activity {
             c.set(Calendar.DATE, sms.date);
             c.set(Calendar.HOUR_OF_DAY, sms.hour);
             c.set(Calendar.MINUTE, sms.minutes);
-            digitalClock.updateTime(c);
-            digitalClock.setTypeface(Typeface.DEFAULT);
+            smsShow.updateTime(c);
+            smsShow.setTypeface(Typeface.DEFAULT);
 
             // Display the label
             TextView phoneShow = (TextView)view.findViewById(R.id.phoneShow);
@@ -191,10 +178,6 @@ public class AutoSMSMainActivity extends Activity {
             TextView messageShow = (TextView)view.findViewById(R.id.messageShow);
     		messageShow.setText(sms.message);
     		messageShow.setVisibility(View.VISIBLE);
-            TextView labelView =
-                    (TextView) view.findViewById(R.id.label);
-            labelView.setText(sms.message);
-			labelView.setVisibility(View.VISIBLE);
             
         }
     };

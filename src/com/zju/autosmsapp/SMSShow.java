@@ -37,7 +37,7 @@ import android.widget.TextView;
 /**
  * Displays the time
  */
-public class DigitalClock extends LinearLayout {
+public class SMSShow extends LinearLayout {
 
 
 
@@ -105,11 +105,11 @@ public class DigitalClock extends LinearLayout {
         }
     }
 
-    public DigitalClock(Context context) {
+    public SMSShow(Context context) {
         this(context, null);
     }
 
-    public DigitalClock(Context context, AttributeSet attrs) {
+    public SMSShow(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

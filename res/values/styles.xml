@@ -21,19 +21,7 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/btn_strip_trans_left</item>
-    </style>
-    <style name="ButtonStripMiddle">
-        <item name="android:gravity">center</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/btn_strip_trans_middle</item>
-    </style>
-    <style name="ButtonStripRight">
-        <item name="android:gravity">center</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/btn_strip_trans_right</item>
+        <item name="android:background">@drawable/btn_strip_trans</item>
     </style>
     
     <style name="sms_list_left_column">
