@@ -168,14 +168,12 @@ public class SMSProvider extends ContentProvider {
     public int delete(Uri url, String where, String[] whereArgs) {
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         int count;
-        long rowId = 0;
         switch (sURLMatcher.match(url)) {
             case SMS:
                 count = db.delete(table_name, where, whereArgs);
                 break;
             case SMS_ID:
                 String segment = url.getPathSegments().get(1);
-                rowId = Long.parseLong(segment);
                 if (TextUtils.isEmpty(where)) {
                     where = "_id=" + segment;
                 } else {

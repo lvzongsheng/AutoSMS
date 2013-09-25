@@ -8,7 +8,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.view.ContextMenu;
@@ -23,9 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.CheckBox;
 import android.widget.CursorAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -59,20 +56,6 @@ public class AutoSMSMainActivity extends Activity {
 			}
 			
 		});
-		smsList.setOnCreateContextMenuListener(new OnCreateContextMenuListener(){
-
-			@Override
-			public void onCreateContextMenu(ContextMenu menu, View view,
-					ContextMenuInfo menuInfo) {
-				getMenuInflater().inflate(R.menu.context_menu, menu);
-		        final AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
-		        final Cursor c =
-		                (Cursor) smsList.getAdapter().getItem((int) info.position);
-		        final SMS sms = new SMS(c);
-			}
-			
-		});
-		
 		
 		View addSMS = findViewById(R.id.add_sms);
 		
