@@ -63,8 +63,7 @@ public final class R {
         public static final int add_sms=0x7f050003;
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f050006;
-        public static final int delete_sms=0x7f05000b;
-        public static final int delete_sms_confirm=0x7f05000a;
+        public static final int delete_sms=0x7f05000a;
         public static final int desk_sms_button_description=0x7f050004;
         public static final int done=0x7f050005;
         public static final int menu_delete_sms=0x7f050009;

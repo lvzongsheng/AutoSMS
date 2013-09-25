@@ -69,9 +69,7 @@ public class SetSMS extends Activity{
         	}
         }
 		
-		
 		save_btn.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View arg0) {
 				if(isEdit){
@@ -96,11 +94,9 @@ public class SetSMS extends Activity{
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent();
 				intent.setAction(Intent.ACTION_PICK);
 				intent.setData(ContactsContract.Contacts.CONTENT_URI);
-				//Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
 				startActivityForResult(intent, REQUEST_CONTACT);
 			}
 		});
@@ -207,7 +203,6 @@ public class SetSMS extends Activity{
 	                	   phone.setText(phoneNumber);
 	                   else
 	                	   phone.setText(phone.getText().toString() + ";" + phoneNumber);
-//	                   phone.setText(phoneNumber);
 	                   phones.close();
 	                  }
 	                }

@@ -32,7 +32,6 @@ import android.widget.TextView;
 public class AutoSMSMainActivity extends Activity {
 	public static final String PREFERENCES = "SMS";
 	
-	private SharedPreferences mPrefs;
 	private ListView smsList;
 	private Cursor mCursor;
 	private LayoutInflater mFactory;
@@ -41,7 +40,6 @@ public class AutoSMSMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_auto_smsmain);
-		mPrefs = getSharedPreferences(PREFERENCES, 0);
 		mCursor = SMSMain.getSMSCursor(getContentResolver());
 		smsList = (ListView)findViewById(R.id.smses_list);
 		mFactory = LayoutInflater.from(this);
@@ -54,7 +52,6 @@ public class AutoSMSMainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View v, int pos,
 					long id) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent(AutoSMSMainActivity.this, SetSMS.class);
 		        intent.putExtra(SMSMain.SMS_ID, (int) id);
 		        startActivity(intent);
@@ -62,16 +59,12 @@ public class AutoSMSMainActivity extends Activity {
 			}
 			
 		});
-		//smsList.setOnCreateContextMenuListener(this);
 		smsList.setOnCreateContextMenuListener(new OnCreateContextMenuListener(){
 
 			@Override
 			public void onCreateContextMenu(ContextMenu menu, View view,
 					ContextMenuInfo menuInfo) {
-				// TODO Auto-generated method stub
 				getMenuInflater().inflate(R.menu.context_menu, menu);
-
-		        // Use the current item to create a custom view for the header.
 		        final AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
 		        final Cursor c =
 		                (Cursor) smsList.getAdapter().getItem((int) info.position);
@@ -99,7 +92,6 @@ public class AutoSMSMainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		return true;
 	}
 	
@@ -107,16 +99,13 @@ public class AutoSMSMainActivity extends Activity {
         final AdapterContextMenuInfo info =
                 (AdapterContextMenuInfo) item.getMenuInfo();
         final int id = (int) info.id;
-        // Error check just in case.
         if (id == -1) {
             return super.onContextItemSelected(item);
         }
         switch (item.getItemId()) {
             case R.id.delete_sms:
-                // Confirm that the alarm will be deleted.
                 new AlertDialog.Builder(this)
                         .setTitle(getString(R.string.delete_sms))
-                        .setMessage(getString(R.string.delete_sms_confirm))
                         .setPositiveButton(android.R.string.ok,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface d,
@@ -161,7 +150,6 @@ public class AutoSMSMainActivity extends Activity {
             SMSShow smsShow =
                     (SMSShow) view.findViewById(R.id.smsShow);
 
-            // set the alarm text
             final Calendar c = Calendar.getInstance();
             c.set(Calendar.YEAR, sms.year);
             c.set(Calendar.MONTH, sms.month);
@@ -171,7 +159,6 @@ public class AutoSMSMainActivity extends Activity {
             smsShow.updateTime(c);
             smsShow.setTypeface(Typeface.DEFAULT);
 
-            // Display the label
             TextView phoneShow = (TextView)view.findViewById(R.id.phoneShow);
             phoneShow.setText(sms.phone);
             phoneShow.setVisibility(View.VISIBLE);

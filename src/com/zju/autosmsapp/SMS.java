@@ -53,16 +53,10 @@ public final class SMS implements Parcelable{
         public static final String DEFAULT_SORT_ORDER =
            YEAR + ", " + MONTH + ", " + DATE + ", " + HOUR + ", " + MINUTES + " ASC";
 
-        // Used when filtering enabled alarms.
         public static final String WHERE_ENABLED = ENABLED + "=1";
 
         static final String[] SMS_QUERY_COLUMNS = {
             _ID, PHONE,MESSAGE,YEAR,MONTH,DATE,HOUR, MINUTES, SEND_TIME };
-
-        /**
-         * These save calls to cursor.getColumnIndexOrThrow()
-         * THEY MUST BE KEPT IN SYNC WITH ABOVE QUERY COLUMNS
-         */
         public static final int SMS_ID_INDEX = 0;
         public static final int SMS_PHONE_INDEX = 1;
         public static final int SMS_MESSAGE_INDEX = 2;

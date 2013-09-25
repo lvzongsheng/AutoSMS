@@ -15,7 +15,6 @@
     
     <string name="menu_edit_sms">编辑短信</string>
     <string name="menu_delete_sms">删除短信</string>
-    <string name="delete_sms_confirm">是</string>
     <string name="delete_sms">您确定要删除短信吗?</string>
 
 </resources>

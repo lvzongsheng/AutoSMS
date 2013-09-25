@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2008 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.zju.autosmsapp;
 
 import java.text.DateFormatSymbols;
@@ -48,12 +32,9 @@ public class SMSShow extends LinearLayout {
     private ContentObserver mFormatChangeObserver;
     private boolean mLive = true;
     private boolean mAttached;
-    private final static String M12 = "h:mm";
-    private final static String M24 = "kk:mm";
     private final static String DM12 = "yyyy/MM/dd h:mm";
     private final static String DM24 = "yyyy/MM/dd kk:mm";
 
-    /* called by system on minute ticks */
     private final Handler mHandler = new Handler();
     private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
             @Override
@@ -62,7 +43,6 @@ public class SMSShow extends LinearLayout {
                             Intent.ACTION_TIMEZONE_CHANGED)) {
                     mCalendar = Calendar.getInstance();
                 }
-                // Post a runnable to avoid blocking the broadcast.
                 mHandler.post(new Runnable() {
                         public void run() {
                             updateTime();
@@ -79,7 +59,6 @@ public class SMSShow extends LinearLayout {
 
         AmPm(View parent) {
             mAmPm = (TextView) parent.findViewById(R.id.am_pm);
-
             String[] ampm = new DateFormatSymbols().getAmPmStrings();
             mAmString = ampm[0];
             mPmString = ampm[1];
@@ -117,7 +96,6 @@ public class SMSShow extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         if (sTypeface == null) {
-            //sTypeface = Typeface.createFromAsset(getContext().getAssets(),"fonts/Clockopia.ttf");
         }
         mTimeDisplay = (TextView) findViewById(R.id.timeDisplay);
         mTimeDisplay.setTypeface(sTypeface);
@@ -145,7 +123,6 @@ public class SMSShow extends LinearLayout {
             getContext().registerReceiver(mIntentReceiver, filter);
         }
 
-        /* monitor 12/24-hour display preference */
         mFormatChangeObserver = new FormatChangeObserver();
         getContext().getContentResolver().registerContentObserver(
                 Settings.System.CONTENT_URI, true, mFormatChangeObserver);
@@ -183,16 +160,6 @@ public class SMSShow extends LinearLayout {
         mAmPm.setIsMorning(mCalendar.get(Calendar.AM_PM) == 0);
     }
     
-    private void updateTime(String format){
-    	if (mLive) {
-            mCalendar.setTimeInMillis(System.currentTimeMillis());
-        }
-
-        CharSequence newTime = DateFormat.format(format, mCalendar);
-        mTimeDisplay.setText(newTime);
-        mAmPm.setIsMorning(mCalendar.get(Calendar.AM_PM) == 0);
-    }
-
     private void setDateFormat() {
     	
         mFormat = android.text.format.DateFormat.is24HourFormat(getContext()) ? DM24 : DM12;

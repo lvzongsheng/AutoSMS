@@ -29,18 +29,12 @@ public class SMSReceiver extends BroadcastReceiver{
             SMSMain.setNextAlert(context);
             return;
         }
-        //SharedPreferences sharedPreferences = context.getSharedPreferences(  
-         //       AutoSMSMainActivity.PREFERENCES, Activity.MODE_PRIVATE);  
         int year = Calendar.getInstance().get(Calendar.YEAR);
         int month = Calendar.getInstance().get(Calendar.MONTH);
         int date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);  
         int minute = Calendar.getInstance().get(Calendar.MINUTE);  
   
-        /*String time = sharedPreferences.getString(year+"/"+month+"/"+date +" "+ hour + ":" + minute, null);// ���������������  
-        String phone = sharedPreferences.getString("phone", null);  
-        String message = sharedPreferences.getString("message", null);  
-        */
         Log.i("SMSReceiver/currentTime", year + "-" + month +"-" + date + "-" + hour + "-" + minute );
         Log.i("SMSReceiver/sms.time", sms.year + "-" + sms.month + "-" + sms.date + "-" +  sms.hour + "-" + sms.minutes);
         if (sms.year==year&&sms.month==month&&sms.date==date&&sms.hour==hour&&sms.minutes==minute) {  

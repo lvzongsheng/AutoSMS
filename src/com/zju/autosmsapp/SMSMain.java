@@ -1,6 +1,5 @@
 package com.zju.autosmsapp;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.AlarmManager;
@@ -55,8 +54,6 @@ public class SMSMain {
     	if (smsId == -1) return;
 
         ContentResolver contentResolver = context.getContentResolver();
-        /* If alarm is snoozing, lose it */
-        //disableSnoozeAlert(context, alarmId);
 
         Uri uri = ContentUris.withAppendedId(SMS.Columns.CONTENT_URI, smsId);
         contentResolver.delete(uri, "", null);
@@ -102,12 +99,10 @@ public class SMSMain {
 	public static void setNextAlert(Context context){
 		if(!enableSnoozeAlert(context)){
 			SMS sms = calculateNextSMS(context);
-			//
 			if(sms==null)
 				disableAlert(context);
 			else{
 				enableAlert(context,sms,sms.sendTime);
-//				Log.i("SMSMain.setNextAlert", sms.phone + "/" + sms.message + "/" + sms.year + "/" + sms.month + "/" + sms.date + "/" + sms.hour + "/" + sms.minutes + "/" + sms.sendTime);
 			}
 		}
 	}
@@ -175,7 +170,6 @@ public class SMSMain {
     }
 	
 	public static SMS calculateNextSMS(Context context){
-//		ArrayList<SMS> smsList = new ArrayList<SMS>();
 		SMS sms = null;
 		long minTime = Long.MAX_VALUE;
 		long now = System.currentTimeMillis();
@@ -191,11 +185,10 @@ public class SMSMain {
 					if(a.sendTime < now){
 						continue;
 					}
-					if(a.sendTime < minTime){//������������������������������������������������
+					if(a.sendTime < minTime){
 						minTime = a.sendTime;
 						Log.i("minTime", minTime + " ");
 						sms = a;
-//						smsList.add(a);
 					}
 				}while(cursor.moveToNext());
 			}
@@ -231,7 +224,6 @@ public class SMSMain {
                 context, 0, new Intent(context,SMSReceiver.class),
                 PendingIntent.FLAG_CANCEL_CURRENT);
         am.cancel(sender);
-        //setStatusBarIcon(context, false);
         saveNextAlarm(context, "");
     }
 	
