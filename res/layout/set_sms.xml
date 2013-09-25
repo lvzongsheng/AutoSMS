@@ -2,90 +2,93 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    >
-    <LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_weight="1"
-	    android:background="#97a2ac"
-	    android:orientation="vertical" >
-		
-	     <LinearLayout
-	         android:layout_width="match_parent"
-	         android:layout_height="wrap_content"
-	         android:layout_marginTop="7dp"
-	         android:orientation="horizontal">   
-		     <EditText
-		        android:id="@+id/phnum"
-		        android:layout_width="wrap_content"
-		        android:layout_height="35dp"
-		        android:inputType="number" 
-		        android:background="@drawable/shape"
-		        android:textSize="15sp"
-		        android:layout_marginLeft="6dp"
-		        android:layout_weight="1"
-		        android:hint="收信人号码"/>
-	    
-		    <ImageButton
-		        android:id="@+id/contact"
-		        android:layout_width="wrap_content"
-		        android:layout_height="35dp"
-		        android:src="@drawable/contact"/>   
-	   </LinearLayout>
-
-	    <EditText android:id="@+id/message"
-	        android:inputType="text"
-	        android:layout_width="match_parent"
-	        android:layout_height="35dp" 
-	        android:background="@drawable/shape"
-	        android:textSize="15sp"
-	        android:layout_marginLeft="6dp"
-	        android:layout_marginRight="6dp"
-	        android:layout_marginBottom="7dp"
-	        android:layout_marginTop="7dp"
-	        android:hint="短信内容"/>
-		</LinearLayout>
-	    <DatePicker
-	        android:id="@+id/datePicker"
-	        android:calendarViewShown="false"
-	        android:layout_width="wrap_content"
-	        android:layout_height="match_parent"
-	        android:layout_gravity="center" />
-
-	    <TimePicker
-	        android:id="@+id/timePicker"
-	        android:layout_width="wrap_content"
-	        android:layout_height="match_parent"
-	        android:layout_gravity="center" />
-	   
-	</LinearLayout>
-    
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        style="@android:style/ButtonBar">
+        android:orientation="vertical" >
 
-        <Button android:id="@+id/sms_save"
-            android:focusable="true"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#97a2ac"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/phnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape"
+                    android:hint="收信人号码"
+                    android:inputType="number"
+                    android:textSize="15sp" />
+
+                <ImageButton
+                    android:id="@+id/contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:src="@drawable/contact" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/shape"
+                android:hint="短信内容"
+                android:inputType="text"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:calendarViewShown="false" />
+
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@android:style/ButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/sms_save"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/done"/>
-
-        <Button android:id="@+id/sms_cancel"
             android:focusable="true"
+            android:text="@string/done" />
+
+        <Button
+            android:id="@+id/sms_cancel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/cancel"/>
-
+            android:focusable="true"
+            android:text="@string/cancel" />
     </LinearLayout>
 
 </LinearLayout>

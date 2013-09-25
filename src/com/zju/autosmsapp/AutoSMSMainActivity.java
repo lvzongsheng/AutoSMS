@@ -46,7 +46,7 @@ public class AutoSMSMainActivity extends Activity {
 		smsList = (ListView)findViewById(R.id.smses_list);
 		mFactory = LayoutInflater.from(this);
 		
-		AlarmTimeAdapter adapter = new AlarmTimeAdapter(this, mCursor);
+		SMSTimeAdapter adapter = new SMSTimeAdapter(this, mCursor);
 		smsList.setAdapter(adapter);
 		smsList.setVerticalScrollBarEnabled(true);
 		smsList.setOnItemClickListener(new OnItemClickListener(){
@@ -140,9 +140,9 @@ public class AutoSMSMainActivity extends Activity {
         return super.onContextItemSelected(item);
     }
 	
-	private class AlarmTimeAdapter extends CursorAdapter {
+	private class SMSTimeAdapter extends CursorAdapter {
         @SuppressWarnings("deprecation")
-		public AlarmTimeAdapter(Context context, Cursor cursor) {
+		public SMSTimeAdapter(Context context, Cursor cursor) {
         	super(context, cursor);
         }
 

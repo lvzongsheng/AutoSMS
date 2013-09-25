@@ -148,15 +148,13 @@ public class SMSMain {
 		Intent intent = new Intent(context,SMSReceiver.class);
 		intent.setAction("SMSReceiver");
 		
-		Parcel out = Parcel.obtain();//??
-		sms.writeToParcel(out, 0);//??
-		out.setDataPosition(0);//??
-		intent.putExtra(SMS_RAW_DATA, out.marshall());//??
+		Parcel out = Parcel.obtain();
+		sms.writeToParcel(out, 0);
+		out.setDataPosition(0);
+		intent.putExtra(SMS_RAW_DATA, out.marshall());
 		PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-//		PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 		alarmManager.set(AlarmManager.RTC_WAKEUP, sms.sendTime, pendingIntent);
 		
-//		Log.i("SMSMain.enableAlert", sms.phone + "/" + sms.message + "/" + sms.year + "/" + sms.month + "/" + sms.date + "/" + sms.hour + "/" + sms.minutes + "/" + sms.sendTime);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTimeInMillis(sms.sendTime);
 		String timeString = formatDayAndTime(context,calendar);
@@ -193,7 +191,7 @@ public class SMSMain {
 					if(a.sendTime < now){
 						continue;
 					}
-					if(a.sendTime < minTime){//考虑在同一时间同时发送的多条短信
+					if(a.sendTime < minTime){//������������������������������������������������
 						minTime = a.sendTime;
 						Log.i("minTime", minTime + " ");
 						sms = a;

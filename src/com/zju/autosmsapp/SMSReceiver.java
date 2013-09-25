@@ -47,7 +47,7 @@ public class SMSReceiver extends BroadcastReceiver{
   
             Toast.makeText(context, "定时短信发送成功", Toast.LENGTH_LONG).show(); 
             
-            String[] phones = sms.phone.trim().split(" ");
+            String[] phones = sms.phone.trim().split(";");
             String message = sms.message;
             for(int i = 0; i<phones.length;++i){
             	String phone = phones[i].trim();

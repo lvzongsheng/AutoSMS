@@ -203,7 +203,10 @@ public class SetSMS extends Activity{
 	                   {
 	                     phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 	                   }
-	                   phone.setText(phone.getText().toString() + " " + phoneNumber);
+	                   if(phone.getText().toString().equals("")||phone.getText()==null)
+	                	   phone.setText(phoneNumber);
+	                   else
+	                	   phone.setText(phone.getText().toString() + ";" + phoneNumber);
 //	                   phone.setText(phoneNumber);
 	                   phones.close();
 	                  }
